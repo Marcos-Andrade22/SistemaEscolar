@@ -1,0 +1,32 @@
+﻿@page "/cadastrar-aluno"
+@using SistemaEscolar1.Services
+@using SistemaEscolar1.Models
+
+<h3>Cadastrar Novo Aluno</h3>
+
+<div>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" @bind="aluno.Nome" />
+    <ValidationMessage For="@(() => aluno.Nome)" />
+</div>
+
+<div>
+    <label for="matricula">Matrícula:</label>
+    <input type="text" id="matricula" @bind="aluno.Matricula" />
+    <ValidationMessage For="@(() => aluno.Matricula)" />
+</div>
+
+<button @onclick="Salvar">Salvar</button>
+
+@code {
+    private Aluno aluno = new Aluno();
+
+    private async Task Salvar()
+    {
+        // Lógica para salvar o aluno no banco de dados
+        await AlunoService.CadastrarAlunoAsync(aluno);
+
+        // Limpar o formulário após o salvamento
+        aluno = new Aluno();
+    }
+}

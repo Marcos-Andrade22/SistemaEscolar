@@ -1,0 +1,19 @@
+﻿@page "/listar-materias"
+
+<h3>Listar Matérias</h3>
+
+<ul>
+    @foreach (var materia in materias)
+    {
+        <li>@materia.Nome</li>
+    }
+</ul>
+
+@code {
+    private List<Materia> materias;
+
+    protected override async Task OnInitializedAsync()
+    {
+        materias = await MateriaService.ListarMateriasAsync();
+    }
+}

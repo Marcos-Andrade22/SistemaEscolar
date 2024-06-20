@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\SistemaEscolar1\SistemaEscolar1.csproj" />
     <ProjectReference Include="..\Client\SchoolApp.Client.csproj" />
     <ProjectReference Include="..\Shared\SchoolApp.Shared.csproj" />
   </ItemGroup>

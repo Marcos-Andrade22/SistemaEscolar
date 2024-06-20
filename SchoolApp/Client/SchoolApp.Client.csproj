@@ -10,8 +10,10 @@
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Shared\SchoolApp.Shared.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Shared\SchoolApp.Shared.csproj" />
+		<ProjectReference Include="..\SistemaEscolar1\SistemaEscolar1.csproj" />
+	</ItemGroup>
+
 
 </Project>

@@ -1,0 +1,26 @@
+﻿@page "/cadastrar-professor"
+@using SistemaEscolar1.Models
+@using SistemaEscolar1.Services
+
+<h3>Cadastrar Novo Professor</h3>
+
+<div>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" @bind="professor.Nome" />
+    <ValidationMessage For="@(() => professor.Nome)" />
+</div>
+
+<button @onclick="Salvar">Salvar</button>
+
+@code {
+    private Professor professor = new Professor();
+
+    private async Task Salvar()
+    {
+        // Lógica para salvar o professor no banco de dados
+        await ProfessorService.CadastrarProfessorAsync(professor);
+
+        // Limpar o formulário após o salvamento
+        professor = new Professor();
+    }
+}

@@ -1,0 +1,20 @@
+﻿@page "/listar-notas"
+@using SistemaEscolar1.Services
+@using SistemaEscolar1.Models
+<h3>Listar Notas</h3>
+
+<ul>
+    @foreach (var nota in notas)
+    {
+        <li>Aluno: @nota.AlunoId, Matéria: @nota.MateriaId, Nota: @nota.Valor</li>
+    }
+</ul>
+
+@code {
+    private List<Nota> notas;
+
+    protected override async Task OnInitializedAsync()
+    {
+        notas = await NotaService.ListarNotasAsync();
+    }
+}

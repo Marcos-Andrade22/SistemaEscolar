@@ -1,3 +1,4 @@
+using SistemaEscolar1.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,7 +18,11 @@ namespace SchoolApp.Client
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
+            // Registrar o HttpClient
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+            // Registrar o serviço AlunoService
+            builder.Services.AddScoped<IAlunoService, AlunoService>();
 
             await builder.Build().RunAsync();
         }

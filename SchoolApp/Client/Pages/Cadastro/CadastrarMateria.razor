@@ -1,0 +1,25 @@
+﻿@page "/cadastrar-materia"
+@using SistemaEscolar1.Models
+@using SistemaEscolar1.Services
+<h3>Cadastrar Nova Matéria</h3>
+
+<div>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" @bind="materia.Nome" />
+    <ValidationMessage For="@(() => materia.Nome)" />
+</div>
+
+<button @onclick="Salvar">Salvar</button>
+
+@code {
+    private Materia materia = new Materia();
+
+    private async Task Salvar()
+    {
+        // Lógica para salvar a matéria no banco de dados
+        await MateriaService.CadastrarMateriaAsync(materia);
+
+        // Limpar o formulário após o salvamento
+        materia = new Materia();
+    }
+}

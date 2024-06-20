@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaEscolar1", "SistemaEscolar1\SistemaEscolar1.csproj", "{E1378FBA-0881-40AD-816E-72814B8404ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaEscolar1", "SistemaEscolar1\SistemaEscolar1.csproj", "{E1378FBA-0881-40AD-816E-72814B8404ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolApp.Server", "SchoolApp\Server\SchoolApp.Server.csproj", "{0DE935DE-63C1-4529-94F0-0C4765E88439}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchoolApp.Server", "SchoolApp\Server\SchoolApp.Server.csproj", "{0DE935DE-63C1-4529-94F0-0C4765E88439}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolApp.Client", "SchoolApp\Client\SchoolApp.Client.csproj", "{C4A55026-6363-417F-BA8A-DD5FC410FA02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchoolApp.Client", "SchoolApp\Client\SchoolApp.Client.csproj", "{C4A55026-6363-417F-BA8A-DD5FC410FA02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolApp.Shared", "SchoolApp\Shared\SchoolApp.Shared.csproj", "{DBB00CB0-D2A9-43C9-ABE5-109B5E5CE385}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchoolApp.Shared", "SchoolApp\Shared\SchoolApp.Shared.csproj", "{DBB00CB0-D2A9-43C9-ABE5-109B5E5CE385}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

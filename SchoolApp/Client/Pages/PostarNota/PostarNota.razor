@@ -1,0 +1,36 @@
+﻿@page "/postar-nota"
+
+<h3>Postar Nota para Aluno</h3>
+
+<div>
+    <label for="alunoId">Aluno:</label>
+    <input type="text" id="alunoId" @bind="nota.AlunoId" />
+    <ValidationMessage For="@(() => nota.AlunoId)" />
+</div>
+
+<div>
+    <label for="materiaId">Matéria:</label>
+    <input type="text" id="materiaId" @bind="nota.MateriaId" />
+    <ValidationMessage For="@(() => nota.MateriaId)" />
+</div>
+
+<div>
+    <label for="valor">Nota:</label>
+    <input type="number" id="valor" @bind="nota.Valor" />
+    <ValidationMessage For="@(() => nota.Valor)" />
+</div>
+
+<button @onclick="PostarNota">Postar Nota</button>
+
+@code {
+    private Nota nota = new Nota();
+
+    private async Task PostarNota()
+    {
+        // Lógica para postar a nota no banco de dados
+        await NotaService.CadastrarNotaAsync(nota);
+
+        // Limpar o formulário após o salvamento
+        nota = new Nota();
+    }
+}

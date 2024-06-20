@@ -1,0 +1,36 @@
+﻿@page "/cadastrar-nota"
+
+<h3>Cadastrar Nova Nota</h3>
+
+<div>
+    <label for="alunoId">Aluno:</label>
+    <input type="text" id="alunoId" @bind="nota.AlunoId" />
+    <ValidationMessage For="@(() => nota.AlunoId)" />
+</div>
+
+<div>
+    <label for="materiaId">Matéria:</label>
+    <input type="text" id="materiaId" @bind="nota.MateriaId" />
+    <ValidationMessage For="@(() => nota.MateriaId)" />
+</div>
+
+<div>
+    <label for="valor">Nota:</label>
+    <input type="number" id="valor" @bind="nota.Valor" />
+    <ValidationMessage For="@(() => nota.Valor)" />
+</div>
+
+<button @onclick="Salvar">Salvar</button>
+
+@code {
+    private Nota nota = new Nota();
+
+    private async Task Salvar()
+    {
+        // Lógica para salvar a nota no banco de dados
+        await NotaService.CadastrarNotaAsync(nota);
+
+        // Limpar o formulário após o salvamento
+        nota = new Nota();
+    }
+}

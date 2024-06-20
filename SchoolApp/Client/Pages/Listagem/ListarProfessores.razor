@@ -1,0 +1,19 @@
+﻿@page "/listar-professores"
+
+<h3>Listar Professores</h3>
+
+<ul>
+    @foreach (var professor in professores)
+    {
+        <li>@professor.Nome</li>
+    }
+</ul>
+
+@code {
+    private List<Professor> professores;
+
+    protected override async Task OnInitializedAsync()
+    {
+        professores = await ProfessorService.ListarProfessoresAsync();
+    }
+}

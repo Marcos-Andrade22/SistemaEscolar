@@ -1,0 +1,21 @@
+﻿@page "/dashboard"
+@using 
+
+<h3>Dashboard de Estatísticas</h3>
+
+<p>Total de Alunos: @totalAlunos</p>
+<p>Total de Matérias: @totalMaterias</p>
+<p>Média de Notas: @mediaNotas</p>
+
+@code {
+    private int totalAlunos;
+    private int totalMaterias;
+    private double mediaNotas;
+
+    protected override async Task OnInitializedAsync()
+    {
+        totalAlunos = await AlunoService.ObterTotalAlunosAsync();
+        totalMaterias = await MateriaService.ObterTotalMateriasAsync();
+        mediaNotas = await NotaService.CalcularMediaNotasAsync();
+    }
+}

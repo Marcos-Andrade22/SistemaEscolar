@@ -1,0 +1,23 @@
+﻿@page "/listar-alunos"
+@using SistemaEscolar1.Models
+@using SistemaEscolar1.Services
+
+<h3>Listar Alunos</h3>
+
+<ul>
+    @foreach (var aluno in alunos)
+    {
+        <li>@aluno.Nome (@aluno.Matricula)</li>
+    }
+</ul>
+
+@code {
+
+    private List<Aluno> alunos;
+
+    protected override async Task OnInitializedAsync()
+    {
+        alunos = await AlunoService.ListarAlunosAsync();
+    }
+
+}
