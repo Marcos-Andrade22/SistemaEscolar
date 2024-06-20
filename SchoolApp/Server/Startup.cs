@@ -1,4 +1,4 @@
-using SistemaEscolar1.Services;
+using SistemaEscolar1.Services; // Certifique-se de usar o namespace correto
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.ResponseCompression;
@@ -21,21 +21,20 @@ namespace SchoolApp.Server
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        // Adicione serviços ao contêiner.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
-            // Registrar o HttpClient
+            // Registrar HttpClient
             services.AddScoped<HttpClient>(sp =>
             {
                 var navigationManager = sp.GetRequiredService<NavigationManager>();
                 return new HttpClient { BaseAddress = new Uri(navigationManager.BaseUri) };
             });
 
-            // Registrar o serviço AlunoService com o namespace correto
+            // Registrar AlunoService com o namespace correto
             services.AddScoped<IAlunoService, SistemaEscolar1.Services.AlunoService>();
 
             // Adicionar serviços de controladores e API
@@ -53,7 +52,7 @@ namespace SchoolApp.Server
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // Configure o pipeline de requisição HTTP.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
